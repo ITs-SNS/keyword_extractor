@@ -284,9 +284,9 @@ def post():
                 poh.add(word)
 
     # nr_candidate가 클수록, 키워드간의 유사성이 최소화 됨, 문서와 키워드 사이의 유사성은 극대화
-    mss_keywords = max_sum_sim(doc_embedding, candidate_embeddings, candidates, top_n=5, nr_candidates=30, candidates=candidates)
+    mss_keywords = max_sum_sim(doc_embedding, candidate_embeddings, candidates, top_n=10, nr_candidates=10, candidates=candidates)
     # diversity값이 클수록, 키워드간의 유사성이 최소화 됨, 문서와 키워드 사이의 유사성은 극대화
-    mmr_keywords=mmr(doc_embedding, candidate_embeddings, candidates, top_n=5, diversity=0.5)
+    mmr_keywords=mmr(doc_embedding, candidate_embeddings, candidates, top_n=10, diversity=0.2)
 
     final_keywords=set([])
     final_keywords=final_keywords.union(org)
